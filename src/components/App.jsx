@@ -1,16 +1,21 @@
+import { Box } from 'theme-ui';
+import { GlobalStyle } from './GlobalStyle';
+import { ContactsForm } from "./Form/Form";
+import { Filter } from './Filter';
+import { ContactsList } from "./ContactsList/ContactsList";
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
-  );
-};
+    <>
+      <Box style={{ width: "25vw", padding: "16px", }}>
+        <h2>Phonebook</h2>
+        <ContactsForm />
+        <h3 style={{ marginBottom: "16px" }}>Contacts</h3>
+        <Filter />
+        <ContactsList />
+      </Box>
+      <GlobalStyle />
+    </>
+  ) 
+}
+
