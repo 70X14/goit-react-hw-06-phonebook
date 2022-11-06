@@ -29,7 +29,9 @@ function ContactForm({ onSubmit }) {
 
   const onFormSubmit = e => {
     e.preventDefault();
-    makeContact(inputName, inputNumber);
+    if (isNewContact(inputName,inputNumber)){
+      dispatch(add(makeContact(inputName, inputNumber)));
+    }
     reset();
   };
 
@@ -75,11 +77,6 @@ function ContactForm({ onSubmit }) {
       />
       <button
         type="submit"
-        onClick={() => {
-          if (isNewContact(inputName, inputNumber)) {
-            dispatch(add(makeContact(inputName, inputNumber)));
-          }
-        }}
       >
         Add to contact
       </button>
